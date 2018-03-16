@@ -1,0 +1,41 @@
+package xmu.ackerman.utils;
+
+/**
+ * @Author: Ackerman
+ * @Description: 解析过程中的Request状态
+ * @Date: Created in 上午10:48 18-3-15
+ */
+public enum RequestParseState {
+    PARSE_START,
+
+    LINE_METHOD,
+    LINE_HTTP,
+    LINE_HTTP_H,
+    LINE_HTTP_HT,
+    LINE_HTTP_HTT,
+    LINE_HTTP_HTTP,
+    LINE_MAJOR_DIGIT,
+    LINE_MINOR_DIGIT,
+    LINE_FIRST_MAJOR_DIGIT,
+    LINE_FIRST_MINOR_DIGIT,
+    LINE_SPACES_AFTER_DIGIT,
+    LINE_SPACES_BEFORE_URI,
+    LINE_AFTER_SLASH_IN_URI,
+    LINE_ALMOST_DONE,
+
+    HEADER_START,
+    HEADER_CR,
+    HEADER_CRLF,
+    HEADER_CRLFCR,
+    HEADER_KEY,
+    HEADER_VALUE,
+    HEADER_SPACES_BEFORE_COLON,
+    HEADER_SPACES_AFTER_COLON,
+
+
+
+    PARSE_OK,
+    PARSE_MORE,
+    PARSE_REQUEST_LINE_EXCEPTION,
+    PARSE_REQUEST_HEADER_EXCEPTION,
+}
