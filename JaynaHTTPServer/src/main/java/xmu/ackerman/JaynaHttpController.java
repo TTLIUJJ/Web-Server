@@ -2,6 +2,7 @@ package xmu.ackerman;
 
 import xmu.ackerman.context.HttpRequest;
 import xmu.ackerman.thread.ReadThread;
+import xmu.ackerman.thread.TimeMonitorThread;
 import xmu.ackerman.thread.WriteThread;
 import xmu.ackerman.thread.RejectedStrategy;
 import xmu.ackerman.service.RequestMessage;
@@ -32,7 +33,12 @@ public class JaynaHttpController {
     private Selector selector;
     private ExecutorService pool;
     private ThreadPoolExecutor threadPoolExecutor;
+//    private ArrayBlockingQueue<SelectionKey> queue;
+//    private LinkedBlockingQueue<SelectionKey> queue;
+//    private ConcurrentHashMap<SelectionKey, Long> map;
 
+    private LinkedList<SelectionKey> queue;
+    private HashMap<SelectionKey, Long> map;
     public JaynaHttpController(){
         InputStream inputStream;
         try{
@@ -83,16 +89,26 @@ public class JaynaHttpController {
 
     private void initAttribute(){
 //        this.pool = Executors.newFixedThreadPool(this.threadNum);
-        threadPoolExecutor = new ThreadPoolExecutor(
-                2,
-                10,
-                60,
-                TimeUnit.SECONDS,
-                new ArrayBlockingQueue<Runnable>(100),
-                new RejectedStrategy()
-        );
-
-
+        try {
+            threadPoolExecutor = new ThreadPoolExecutor(
+                    2,
+                    10,
+                    60,
+                    TimeUnit.SECONDS,
+                    new ArrayBlockingQueue<Runnable>(100),
+                    new RejectedStrategy()
+            );
+//            queue = new ArrayBlockingQueue<SelectionKey>(10000);
+//            queue = new LinkedBlockingQueue<SelectionKey>();
+//            map = new ConcurrentHashMap<SelectionKey, Long>();
+            queue = new LinkedList<SelectionKey>();
+            map = new HashMap<SelectionKey, Long>();
+            Runnable r = new TimeMonitorThread(queue, map);
+            Thread t = new Thread(r);
+            t.start();
+        }catch (Exception e){
+            System.out.println("InitAttribute: " + e);
+        }
     }
 
 
@@ -176,7 +192,7 @@ public class JaynaHttpController {
 
                         SocketChannel client = (SocketChannel) key.channel();
                         HttpRequest request = (HttpRequest) key.attachment();
-                        WriteThread writeThread = new WriteThread(request, key);
+                        WriteThread writeThread = new WriteThread(request, key, queue, map);
                         Thread thread = new Thread(writeThread);
                         threadPoolExecutor.execute(thread);
                     }

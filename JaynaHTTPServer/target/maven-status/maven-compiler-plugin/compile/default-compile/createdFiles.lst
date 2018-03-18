@@ -10,13 +10,17 @@ xmu/ackerman/thread/RejectedStrategy.class
 xmu/ackerman/context/Response.class
 xmu/ackerman/handler/Handler.class
 xmu/ackerman/JaynaHttpController.class
+xmu/ackerman/test/TestThread.class
 xmu/ackerman/context/Request.class
+xmu/ackerman/test/TestVariable.class
 xmu/ackerman/handler/entityHandler/News1Handler.class
 xmu/ackerman/service/ResponseService.class
 xmu/ackerman/thread/ReadThread.class
 xmu/ackerman/thread/WriteThread.class
+xmu/ackerman/test/C.class
 xmu/ackerman/handler/HandlerAdapter.class
 xmu/ackerman/context/HttpContext.class
+xmu/ackerman/thread/TimeMonitorThread.class
 xmu/ackerman/service/RequestService.class
 xmu/ackerman/context/HttpResponse.class
 xmu/ackerman/utils/ParseRequestUtil.class
