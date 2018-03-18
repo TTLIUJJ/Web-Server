@@ -1,15 +1,17 @@
 package xmu.ackerman;
 
-import xmu.ackerman.thread.HTTPThread;
+import xmu.ackerman.context.HttpRequest;
+import xmu.ackerman.thread.ReadThread;
+import xmu.ackerman.thread.WriteThread;
 import xmu.ackerman.thread.RejectedStrategy;
 import xmu.ackerman.service.RequestMessage;
 import xmu.ackerman.service.RequestService;
+import xmu.ackerman.utils.RequestParseState;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
@@ -127,39 +129,58 @@ public class JaynaHttpController {
                         SocketChannel client = server.accept();
                         if(client != null){
                             client.configureBlocking(false);
-                            client.register(selector, SelectionKey.OP_READ);
+
+                            RequestMessage requestMessage = new RequestMessage();
+                            HttpRequest request = new HttpRequest(requestMessage);
+
+                            SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
+//                            System.out.println("acceptKey:" + clientKey.toString());
+                            clientKey.attach(request);
                         }
                     } else if (key.isReadable()) {
 //                        System.out.println("read");
-                        RequestMessage requestMessage = new RequestMessage();
-                        //接受的数据包有误, 不接受此次请求
-                        //并不是404错误, 而是发送不能识别或者错误的数据包
-                        if(!RequestService.recvFrom(requestMessage, key)){
-                            System.out.println("recvFrom 错误信息");
-//                            key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
-//                            key.channel().close();
-                            break;
-                        }
-
-//                        key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
-
+//                        SocketChannel client = (SocketChannel) key.channel();
+//                        HttpRequest request = (HttpRequest) key.attachment();
+////                        //接受的数据包有误, 不接受此次请求
+////                        //并不是404错误, 而是发送不能识别或者错误的数据包
+//                        RequestParseState state = RequestService.recvFrom(request, key);
+//                        switch (state){
+//                            case PARSE_ERROR:
+//                                key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
+//                                key.channel().close();
+//                                continue;
 //
-//                        for(int i = 0; i < requestMessage.getMessage().size(); ++i){
-//                            System.out.print((char)((byte) requestMessage.getMessage().get(i)));
+//                            case PARSE_MORE:
+//                                System.out.println("parse more");
+//                                client.register(selector, SelectionKey.OP_READ, request);
+//                                continue;
+//
+//                            case PARSE_OK:
+//                                break;
 //                        }
 //
-                        HTTPThread httpThread = new HTTPThread(requestMessage, key);
-                        Thread thread = new Thread(httpThread);
+//                        WriteThread writeThread = new WriteThread(request, key, selector);
+//                        threadPoolExecutor.execute();
+//                        TimeUnit.SECONDS.sleep(1);
+
+                        //防止多个线程 处理一个READ_KEY
+                        key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
+//                        System.out.println("readKey: " + key.toString());
+                        ReadThread readThread = new ReadThread(selector, key);
+                        Thread thread = new Thread(readThread);
                         threadPoolExecutor.execute(thread);
-//                        pool.execute(thread);
+
                     } else if (key.isWritable()) {
-                        System.out.println("writable");
+//                        System.out.println("writable");
+                        key.interestOps(key.interestOps() & (~SelectionKey.OP_WRITE));
 
                         SocketChannel client = (SocketChannel) key.channel();
-                        client.close();
+                        HttpRequest request = (HttpRequest) key.attachment();
+                        WriteThread writeThread = new WriteThread(request, key);
+                        Thread thread = new Thread(writeThread);
+                        threadPoolExecutor.execute(thread);
                     }
 
-                    readyKeys.remove(key);
                 }
             }
         }catch (Exception e){
@@ -175,7 +196,7 @@ public class JaynaHttpController {
         }catch (Exception e){
 
         }finally {
-            System.out.println("拒绝总次数: " + RejectedStrategy.atomicInteger.get());
+
         }
     }
 }

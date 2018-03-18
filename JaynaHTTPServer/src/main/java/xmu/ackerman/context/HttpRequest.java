@@ -19,11 +19,17 @@ public class HttpRequest implements Request {
 
     private Map<String, String> headers;
 
+    private RequestMessage message;
+
+    private long expireTime;
+
     public HttpRequest(RequestMessage rs){
         this.method = rs.getMethod();
         this.uri = rs.getUri();
         this.protocol = rs.getMajor() + "/" + rs.getMinor();
         this.headers = rs.getHeaders();
+        this.message = rs;
+        this.expireTime = 0;
     }
 
 
@@ -59,4 +65,19 @@ public class HttpRequest implements Request {
         this.headers = headers;
     }
 
+    public RequestMessage getMessage() {
+        return message;
+    }
+
+    public void setMessage(RequestMessage message) {
+        this.message = message;
+    }
+
+    public long getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(long expireTime) {
+        this.expireTime = expireTime;
+    }
 }

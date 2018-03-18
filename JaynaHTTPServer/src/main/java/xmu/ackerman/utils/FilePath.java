@@ -23,6 +23,9 @@ public class FilePath {
             fileMap = new HashMap<String, String>();
             String projectName = System.getProperty("user.dir");
             File root = new File(projectName+"/src/main/resources/");
+
+            //静态文件夹
+            String staticDirectory = "static";
             this.prefixPath = root.toString();
 
             Queue<File> queue = new LinkedList<File>();
@@ -31,6 +34,11 @@ public class FilePath {
                 int size = queue.size();
                 while(size-- != 0){
                     File file = queue.poll();
+
+                    //静态文件不加入map
+                    if(staticDirectory.equals(file.getName())){
+                        break;
+                    }
                     File []files = file.listFiles();
                     if(files == null || files.length == 0){
                         break;

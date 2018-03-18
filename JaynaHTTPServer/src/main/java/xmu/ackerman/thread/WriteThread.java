@@ -2,12 +2,15 @@ package xmu.ackerman.thread;
 
 import xmu.ackerman.context.Context;
 import xmu.ackerman.context.HttpContext;
+import xmu.ackerman.context.HttpRequest;
 import xmu.ackerman.handler.HtmlHandler;
 import xmu.ackerman.service.RequestMessage;
 import xmu.ackerman.service.ResponseService;
 
 import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -15,7 +18,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description: 一个接受请求, 并处理返回结果的工作线程
  * @Date: Created in 下午5:12 18-3-15
  */
-public class HTTPThread implements Runnable {
+public class WriteThread implements Runnable {
+    private static final long ALIVE_TIME = 50;
+
     private static AtomicInteger atomicInteger = new AtomicInteger();
 
     private Context context;
@@ -25,16 +30,19 @@ public class HTTPThread implements Runnable {
     private RequestMessage requestMessage;
 
     private int number;
+
+    private HttpRequest request;
+
 //    private ConcurrentHashMap<SelectionKey, Object> interestMap;
 
-    public HTTPThread(RequestMessage requestMessage,
-                      SelectionKey key
-                     ){
+    public WriteThread(HttpRequest request,
+                       SelectionKey key){
 
-        context = new HttpContext();
-        this.requestMessage = requestMessage;
+        this.context = new HttpContext();
+        this.requestMessage = request.getMessage();
         this.key = key;
         number = atomicInteger.incrementAndGet();
+        this.request = request;
 //        this.interestMap = interestMap;
     }
 
@@ -60,8 +68,6 @@ public class HTTPThread implements Runnable {
 
             ResponseService.write(context);
 
-//            key.interestOps(key.interestOps() | SelectionKey.OP_READ);
-
         }catch (Exception e){
 //            System.out.println("HttpThread Exception" + e);
         }finally {
@@ -76,5 +82,13 @@ public class HTTPThread implements Runnable {
 
 //        System.out.println("Thread end: " + number);
 
+    }
+
+
+    private void resetHttpRequest(){
+        RequestMessage message = new RequestMessage();
+        long expire = new Date().getTime() + ALIVE_TIME;
+        request.setMessage(message);
+        request.setExpireTime(expire);
     }
 }
