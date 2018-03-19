@@ -1,6 +1,6 @@
 # Jayna HTTP Server
 
-**Jayna Web Server是使用Java NIO，基于Reactor模型编写HTTP服务器**
+**Jayna Web Server是使用Java NIO，基于Reactor多线程模型编写HTTP服务器**
 **目前在短连接的情况下，已经表现出不错的性能**
 **接触HTTP服务器可以很好的学习网络编程和多线程编程的知识**
 

@@ -40,19 +40,10 @@ public class RequestService {
             // parse_more 1.半包数据  2.缓冲区太小
             //需要设置 等待超时时间
             //可能 读取在等待更多的数据 进行parse_more
-//                System.out.println("aaaaaaa");
-
             int cnt = client.read(buffer);
-//                System.out.println("cnt == " + cnt);
-            if(cnt == 0){
-//                System.out.println("cnt == 0");
-                return RequestParseState.PARSE_MORE;
-            }
 
-            if(cnt < 0){
-//                    System.out.println("cnt == " + cnt);
-//                    return requestError(key);
-                return checkExpire(request, key);
+            if(cnt <= 0){
+                return requestError(key);
             }
             byte [] bytes = buffer.array();
 
@@ -94,28 +85,5 @@ public class RequestService {
 
         return RequestParseState.PARSE_ERROR;
     }
-
-    /**
-    * @Return:
-     *
-    * @Description: 当读取到-1的时候, 有两种情况
-     *                1. 客户端第一次连接, 断开连接, 返回
-     *                2. 由于keepAlive的存在, 尝试继续向通道读取 直到过期 返回
-    * @Date: 上午12:39 18-3-18
-    */
-    public static RequestParseState checkExpire(HttpRequest request, SelectionKey key){
-        //当做
-        if(request.getExpireTime() == 0){
-            return RequestParseState.PARSE_ERROR;
-        }
-
-        long now = new Date().getTime();
-        if(now >= request.getExpireTime()){
-            return RequestParseState.PARSE_ERROR;
-        }
-
-        return RequestParseState.PARSE_MORE;
-    }
-
 
 }

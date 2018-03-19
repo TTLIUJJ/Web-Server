@@ -1,5 +1,6 @@
 package xmu.ackerman.thread;
 
+import javafx.scene.SubScene;
 import xmu.ackerman.context.Context;
 import xmu.ackerman.context.HttpContext;
 import xmu.ackerman.context.HttpRequest;
@@ -72,14 +73,17 @@ public class WriteThread implements Runnable {
 //            System.out.println("HttpThread Exception" + e);
         }finally {
             try {
-                //少了这行代码
-                //压力测试不通过
-                //在keepALive模式下 要关闭, 关闭通道由priorityQueue执行
-                if(!keepAlive) {
+
+                if(keepAlive) {
+                    //保持连接状态, 通道注册读事件
+                    key.interestOps(SelectionKey.OP_READ);
+                }
+                else{
+                    //立即关闭通道
                     key.channel().close();
                 }
             }catch (Exception ee){
-
+                System.out.println("WriteThread finally: " + ee);
             }
         }
 
@@ -90,5 +94,6 @@ public class WriteThread implements Runnable {
         request.setMessage(new RequestMessage());
 
         key.attach(request);
+
     }
 }

@@ -138,8 +138,8 @@ public class JaynaHttpController {
                             SocketChannel client = server.accept();
                             if (client != null) {
                                 client.configureBlocking(false);
-
                                 RequestMessage requestMessage = new RequestMessage();
+
                                 HttpRequest request = new HttpRequest(requestMessage);
 
                                 SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
@@ -149,6 +149,7 @@ public class JaynaHttpController {
                                 }
                             }
                         } else if (key.isValid() && key.isReadable()) {
+                            System.out.println("read");
                             //防止多个线程 处理一个READ_KEY
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
                             ReadThread readThread = new ReadThread(selector, key);

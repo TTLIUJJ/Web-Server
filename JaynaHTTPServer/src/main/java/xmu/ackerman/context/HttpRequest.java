@@ -21,15 +21,13 @@ public class HttpRequest implements Request {
 
     private RequestMessage message;
 
-    private long expireTime;
-
     public HttpRequest(RequestMessage rs){
         this.method = rs.getMethod();
         this.uri = rs.getUri();
         this.protocol = rs.getMajor() + "/" + rs.getMinor();
         this.headers = rs.getHeaders();
         this.message = rs;
-        this.expireTime = 0;
+
     }
 
 
@@ -73,11 +71,4 @@ public class HttpRequest implements Request {
         this.message = message;
     }
 
-    public long getExpireTime() {
-        return expireTime;
-    }
-
-    public void setExpireTime(long expireTime) {
-        this.expireTime = expireTime;
-    }
 }
