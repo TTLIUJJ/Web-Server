@@ -149,7 +149,7 @@ public class JaynaHttpController {
                                 }
                             }
                         } else if (key.isValid() && key.isReadable()) {
-                            System.out.println("read");
+//                            System.out.println("read");
                             //防止多个线程 处理一个READ_KEY
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
                             ReadThread readThread = new ReadThread(selector, key);
