@@ -1,13 +1,11 @@
 package xmu.ackerman;
 
 import xmu.ackerman.context.HttpRequest;
+import xmu.ackerman.service.TimeMonitorService;
 import xmu.ackerman.thread.ReadThread;
-import xmu.ackerman.thread.TimeMonitorThread;
 import xmu.ackerman.thread.WriteThread;
 import xmu.ackerman.thread.RejectedStrategy;
 import xmu.ackerman.service.RequestMessage;
-import xmu.ackerman.service.RequestService;
-import xmu.ackerman.utils.RequestParseState;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -33,13 +31,13 @@ public class JaynaHttpController {
     private Selector selector;
     private ExecutorService pool;
     private ThreadPoolExecutor threadPoolExecutor;
-//    private ArrayBlockingQueue<SelectionKey> queue;
-//    private LinkedBlockingQueue<SelectionKey> queue;
-//    private ConcurrentHashMap<SelectionKey, Long> map;
+    private TimeMonitorService timeMonitorService;
 
-    private LinkedList<SelectionKey> queue;
-    private HashMap<SelectionKey, Long> map;
-    public JaynaHttpController(){
+    //用于测试 使用keepAlive性能下降多少
+    private boolean keepAlive;
+
+    public JaynaHttpController(boolean keepAlive){
+        this.keepAlive = keepAlive;
         InputStream inputStream;
         try{
             inputStream = new FileInputStream(CONFIG_FILE);
@@ -98,14 +96,8 @@ public class JaynaHttpController {
                     new ArrayBlockingQueue<Runnable>(100),
                     new RejectedStrategy()
             );
-//            queue = new ArrayBlockingQueue<SelectionKey>(10000);
-//            queue = new LinkedBlockingQueue<SelectionKey>();
-//            map = new ConcurrentHashMap<SelectionKey, Long>();
-            queue = new LinkedList<SelectionKey>();
-            map = new HashMap<SelectionKey, Long>();
-            Runnable r = new TimeMonitorThread(queue, map);
-            Thread t = new Thread(r);
-            t.start();
+            timeMonitorService = new TimeMonitorService();
+
         }catch (Exception e){
             System.out.println("InitAttribute: " + e);
         }
@@ -122,8 +114,6 @@ public class JaynaHttpController {
                 int readyChannels = 0;
                 try {
                     readyChannels = selector.select();
-//                    System.out.println("in loop");
-
                 } catch (Exception e) {
                     //TODO
                 }
@@ -131,73 +121,53 @@ public class JaynaHttpController {
                 if (readyChannels == 0) {
                     continue;
                 }
+
+                if(keepAlive) {
+                    timeMonitorService.checkExpiredKey();
+                }
                 Set<SelectionKey> readyKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = readyKeys.iterator();
-//
 
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
                     iterator.remove();
 
-//                    SelectionKey key = interestQueue.take();
-                    if (key.isAcceptable()) {
-                        ServerSocketChannel server = (ServerSocketChannel) key.channel();
-                        SocketChannel client = server.accept();
-                        if(client != null){
-                            client.configureBlocking(false);
+                    try {
+                        if (key.isValid() && key.isAcceptable()) {
+                            ServerSocketChannel server = (ServerSocketChannel) key.channel();
+                            SocketChannel client = server.accept();
+                            if (client != null) {
+                                client.configureBlocking(false);
 
-                            RequestMessage requestMessage = new RequestMessage();
-                            HttpRequest request = new HttpRequest(requestMessage);
+                                RequestMessage requestMessage = new RequestMessage();
+                                HttpRequest request = new HttpRequest(requestMessage);
 
-                            SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
-//                            System.out.println("acceptKey:" + clientKey.toString());
-                            clientKey.attach(request);
+                                SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
+                                clientKey.attach(request);
+                                if(keepAlive) {
+                                    timeMonitorService.addMonitorKey(clientKey);
+                                }
+                            }
+                        } else if (key.isValid() && key.isReadable()) {
+                            //防止多个线程 处理一个READ_KEY
+                            key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
+                            ReadThread readThread = new ReadThread(selector, key);
+                            Thread thread = new Thread(readThread);
+                            threadPoolExecutor.execute(thread);
+
+                        } else if (key.isValid() && key.isWritable()) {
+                            key.interestOps(key.interestOps() & (~SelectionKey.OP_WRITE));
+                            HttpRequest request = (HttpRequest) key.attachment();
+                            WriteThread writeThread = new WriteThread(request, key, keepAlive);
+                            Thread thread = new Thread(writeThread);
+                            threadPoolExecutor.execute(thread);
                         }
-                    } else if (key.isReadable()) {
-//                        System.out.println("read");
-//                        SocketChannel client = (SocketChannel) key.channel();
-//                        HttpRequest request = (HttpRequest) key.attachment();
-////                        //接受的数据包有误, 不接受此次请求
-////                        //并不是404错误, 而是发送不能识别或者错误的数据包
-//                        RequestParseState state = RequestService.recvFrom(request, key);
-//                        switch (state){
-//                            case PARSE_ERROR:
-//                                key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
-//                                key.channel().close();
-//                                continue;
-//
-//                            case PARSE_MORE:
-//                                System.out.println("parse more");
-//                                client.register(selector, SelectionKey.OP_READ, request);
-//                                continue;
-//
-//                            case PARSE_OK:
-//                                break;
-//                        }
-//
-//                        WriteThread writeThread = new WriteThread(request, key, selector);
-//                        threadPoolExecutor.execute();
-//                        TimeUnit.SECONDS.sleep(1);
-
-                        //防止多个线程 处理一个READ_KEY
-                        key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
-//                        System.out.println("readKey: " + key.toString());
-                        ReadThread readThread = new ReadThread(selector, key);
-                        Thread thread = new Thread(readThread);
-                        threadPoolExecutor.execute(thread);
-
-                    } else if (key.isWritable()) {
-//                        System.out.println("writable");
-                        key.interestOps(key.interestOps() & (~SelectionKey.OP_WRITE));
-
-                        SocketChannel client = (SocketChannel) key.channel();
-                        HttpRequest request = (HttpRequest) key.attachment();
-                        WriteThread writeThread = new WriteThread(request, key, queue, map);
-                        Thread thread = new Thread(writeThread);
-                        threadPoolExecutor.execute(thread);
+                    }catch (Exception e){
+                        System.out.println("iterator.next in loop: " + e);
                     }
 
                 }
+
             }
         }catch (Exception e){
             //TODO
@@ -207,7 +177,7 @@ public class JaynaHttpController {
 
     public static void main(String []args){
         try {
-            JaynaHttpController controller = new JaynaHttpController();
+            JaynaHttpController controller = new JaynaHttpController(true);
             controller.start();
         }catch (Exception e){
 

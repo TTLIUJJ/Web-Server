@@ -51,7 +51,7 @@ public class ReadThread implements Runnable {
                     break;
             }
         }catch (Exception e){
-            System.out.println("ReadThread Exception: " + e);
+//            System.out.println("ReadThread Exception: " + e);
         }
     }
 }

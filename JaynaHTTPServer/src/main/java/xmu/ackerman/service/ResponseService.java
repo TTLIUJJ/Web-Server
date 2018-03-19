@@ -125,7 +125,7 @@ public class ResponseService {
 
         }catch (Exception e){
             //TODO
-            System.out.println("write: " + e);
+//            System.out.println("write: " + e);
         }
     }
 
