@@ -178,12 +178,14 @@ public class JaynaHttpController {
 
     public static void main(String []args){
         try {
-            JaynaHttpController controller = new JaynaHttpController(true);
+            boolean keepAlive = false;
+            if(args.length > 0){
+                keepAlive = Boolean.parseBoolean(args[0]);
+            }
+            JaynaHttpController controller = new JaynaHttpController(keepAlive);
             controller.start();
         }catch (Exception e){
-
-        }finally {
-
+            System.out.println("main: " + e);
         }
     }
 }
