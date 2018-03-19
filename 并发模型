@@ -1,0 +1,73 @@
+# 并发模型
+
+在描述JaynaHttpServer之前，先了解一下网络编程的相关知识。
+
+## Socket编程
+
+下图是Socket编程的基础流程图，实际上就是对TCP/IP连接的与通信过程的抽象：
+
+![](http://p5s0bbd0l.bkt.clouddn.com/socket1.png)
+
+
+- 服务端Socket会bind到指定的本地端口，Listen来自服务端的请求
+- 客户端Socket会Connect到服务端指定的 ip:port
+- 服务端收到Connect请求，Accetp客户端
+- 此时通信双端建立，可以收发消息
+- 通信完成后Close套接字
+
+## 阻塞/非阻塞 IO 和同步/异步 IO
+
+了解IO的模式是理解并发模型的基础
+
+**一个IO操作上，实际上可以分成两个步骤：发起IO请求和实际IO操作**
+
+- 阻塞/非阻塞IO ：如果发起的IO是否被阻塞，比如read函数，在数据没有到达之前，read会阻塞进程；而非阻塞IO在数据读取完毕之前就返回。
+- 异步/同步IO ： 如果实际的IO请求阻塞进程，那么就是同步IO，因此，阻塞 IO、非阻塞IO、IO复用、信号驱动都是同步IO；而异步IO不阻塞于读写操作，而是内核在读写完毕后再将结果返回给用户。
+
+**阻塞式IO模型**
+
+![](http://p5s0bbd0l.bkt.clouddn.com/bio1.png)
+
+每个线程处理的流程图：
+
+![](http://p5s0bbd0l.bkt.clouddn.com/bio2.png)
+
+BIO的缺点：默认情况下，所有的套接字都是阻塞的。
+每个连接都会创建一个线程，编码模型虽然比较简单，但是在高并发下，性能很差。
+虽然线程的消耗比进程小，但是一台机器实际上能建立的有效线程是有限的，以Java为例，JDK1.5以后，一个线程大致消耗1M内存，并且随着线程数量增加，CPU切换线程上下文消耗也增加，达到某个阈值后，继续增加线程，性能不升反降。
+
+从性能瓶颈有限上来看，就确定了BIO并不适合进行高性能并发服务器的开发。
+
+**非阻塞式IO模型**
+
+![](http://p5s0bbd0l.bkt.clouddn.com/nio1.png)
+
+- Acceptor监听accept事件
+- 客户端连接触发accept事件，服务端建立对应的Channel
+- 将Channel注册到Selector，监听读写事件
+- 处理触发的读写事件
+
+每个线程处理的流程图：
+
+![](http://p5s0bbd0l.bkt.clouddn.com/nio2.png)
+
+
+进程把一个套接字设置为非阻塞是在通知内核：处理请求的IO操作时，不要把本进程投入睡眠，除非需要休眠才能完成本次操作。
+当一个应用进程像这样对一个非阻塞描述符循环使用recvFrom，称之为轮询。应用进程持续轮询内核，已查看某个操作是否就绪。这样做往往会消耗大量的CPU时间。
+
+**IO复用模型**
+
+![](http://p5s0bbd0l.bkt.clouddn.com/mio2.png)
+
+为了解决用户进程不断向内核轮询读写是否就绪，我们可以调用select或者poll。
+
+现在，用户进程阻塞在select系统调用，一旦有读写事件就绪，让内核通知进程处理对应的事件，这样一来，用户进程就不必轮询内核，避免耗费大量CPU时间。
+
+epoll：对于IO复用模型，epoll的功能与select/poll是一样的，只是有了效率上的提升。epoll只会返回触发了读写事件的Socket，而select返回所有已经注册的Socket，需要遍历所有Socket，浪费不必要的CPU时间。
+
+## Reactor模型
+
+有了前面的知识铺垫，可以更好的理解为何要引入Reactor模型
+
+![](http://p5s0bbd0l.bkt.clouddn.com/reactor1.png)
+

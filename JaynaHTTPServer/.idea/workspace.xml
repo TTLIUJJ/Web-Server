@@ -51,8 +51,8 @@
       <file leaf-file-name="ReadThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/ReadThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+            <state relative-caret-position="134">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JaynaHttpController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JaynaHttpController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2726">
@@ -84,7 +84,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonitoredKey.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MonitoredKey.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/service/MonitoredKey.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="188">
@@ -168,12 +168,12 @@
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/service/RequestService.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/service/TimeMonitorService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/news/news1.html" />
-        <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/ReadThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/service/ResponseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/test/TestThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/WriteThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java" />
         <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/service/MonitoredKey.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/ReadThread.java" />
       </list>
     </option>
   </component>
@@ -622,12 +622,12 @@
       <workItem from="1521335522995" duration="5892000" />
       <workItem from="1521341670579" duration="13018000" />
       <workItem from="1521382801044" duration="5796000" />
-      <workItem from="1521420639657" duration="3759000" />
+      <workItem from="1521420639657" duration="5085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270829000" />
+    <option name="totallyTimeSpent" value="272155000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="80" y="124" width="1301" height="744" extended-state="7" />
@@ -816,6 +816,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="728" column="27" lean-forward="false" selection-start-line="728" selection-start-column="27" selection-end-line="728" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -845,6 +846,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="1341" column="16" lean-forward="false" selection-start-line="1341" selection-start-column="16" selection-end-line="1341" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -963,26 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/ReadThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2726">
-          <caret line="179" column="73" lean-forward="false" selection-start-line="179" selection-start-column="73" selection-end-line="179" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/utils/ParseRequestUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6789">
@@ -1023,6 +1005,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="11" column="60" lean-forward="false" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/thread/ReadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2726">
+          <caret line="179" column="73" lean-forward="false" selection-start-line="179" selection-start-column="73" selection-end-line="179" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
