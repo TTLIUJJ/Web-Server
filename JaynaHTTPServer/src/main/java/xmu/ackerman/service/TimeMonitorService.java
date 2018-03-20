@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
@@ -16,16 +17,19 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 public class TimeMonitorService {
 
-    private PriorityBlockingQueue<MonitoredKey> queue;
+//    private PriorityBlockingQueue<MonitoredKey> queue;
 
-    private Comparator<MonitoredKey> keyComparator = new Comparator<MonitoredKey>() {
-        public int compare(MonitoredKey o1, MonitoredKey o2) {
-            return (int)(o1.getExpireTime() - o2.getExpireTime());
-        }
-    };
+    private ConcurrentLinkedQueue<MonitoredKey> queue;
+
+//    private Comparator<MonitoredKey> keyComparator = new Comparator<MonitoredKey>() {
+//        public int compare(MonitoredKey o1, MonitoredKey o2) {
+//            return (int)(o1.getExpireTime() - o2.getExpireTime());
+//        }
+//    };
 
     public TimeMonitorService(){
-        queue = new PriorityBlockingQueue<MonitoredKey>(1000, keyComparator);
+//        queue = new PriorityBlockingQueue<MonitoredKey>(1000, keyComparator);
+        queue = new ConcurrentLinkedQueue<MonitoredKey>();
     }
 
 
@@ -33,21 +37,32 @@ public class TimeMonitorService {
         try {
 
             long now = new Date().getTime();
-            while (!queue.isEmpty()) {
-                //这个程序会删除大量kye, peek()操作增加工作量
-                MonitoredKey monitoredKey = queue.remove();
-                if (now > monitoredKey.getExpireTime()) {
-                    try {
-                        monitoredKey.getKey().channel().close();
-                    } catch (Exception e) {
-                        System.out.println("checkExpiredKey key.channel.close " + e);
-                    }
-                    continue;
+            MonitoredKey monitoredKey;
+            while((monitoredKey = queue.peek()) != null){
+                long expireTime = monitoredKey.getExpireTime();
+                if(now >= expireTime){
+                    queue.poll();
                 }
-                //次key不是过期的 重新入队
-                queue.add(monitoredKey);
-                break;
+                else{
+                    break;
+                }
             }
+
+//            while (!queue.isEmpty()) {
+//                //这个程序会删除大量kye, peek()操作增加工作量
+//                MonitoredKey monitoredKey = queue.remove();
+//                if (now > monitoredKey.getExpireTime()) {
+//                    try {
+//                        monitoredKey.getKey().channel().close();
+//                    } catch (Exception e) {
+//                        System.out.println("checkExpiredKey key.channel.close " + e);
+//                    }
+//                    continue;
+//                }
+//                //次key不是过期的 重新入队
+//                queue.add(monitoredKey);
+//                break;
+//            }
         }catch (Exception e){
             System.out.println("checkExpiredKey " + e);
         }
@@ -56,7 +71,7 @@ public class TimeMonitorService {
     public void addMonitorKey(SelectionKey key){
         try {
             MonitoredKey monitoredKey = new MonitoredKey(key);
-            queue.add(monitoredKey);
+            queue.offer(monitoredKey);
         }catch (Exception e){
             System.out.println("addMonitorKey " + e);
         }
