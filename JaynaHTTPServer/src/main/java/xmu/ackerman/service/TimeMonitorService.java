@@ -41,6 +41,7 @@ public class TimeMonitorService {
             while((monitoredKey = queue.peek()) != null){
                 long expireTime = monitoredKey.getExpireTime();
                 if(now >= expireTime){
+                    monitoredKey.getKey().channel().close();
                     queue.poll();
                 }
                 else{

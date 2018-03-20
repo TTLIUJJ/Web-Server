@@ -93,7 +93,7 @@ public class JaynaHttpController {
                     10,
                     60,
                     TimeUnit.SECONDS,
-                    new ArrayBlockingQueue<Runnable>(100),
+                    new ArrayBlockingQueue<Runnable>(200),
                     new RejectedStrategy()
             );
             timeMonitorService = new TimeMonitorService();

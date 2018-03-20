@@ -25,3 +25,719 @@ Gtk-Message: GtkDialog mapped without a transient parent. This is discouraged.
 
 (remarkable:2573): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gtkspellcheck/spellcheck.py", line 496, in _click_move_button
+    if self._deferred_check:  self._check_deferred_range(True)
+AttributeError: 'SpellChecker' object has no attribute '_deferred_check'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gtkspellcheck/spellcheck.py", line 154, in <lambda>
+    self._view.connect('populate-popup', lambda entry, menu: self._extend_menu(menu))
+  File "/usr/lib/python3/dist-packages/gtkspellcheck/spellcheck.py", line 452, in _extend_menu
+    if not self._enabled:
+AttributeError: 'SpellChecker' object has no attribute '_enabled'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 8 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 9 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 9 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+(remarkable:7833): Gdk-WARNING **: Event with type 9 not holding a GdkDevice. It is most likely synthesized outside Gdk/GTK+
+
+
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 419, in on_menuitem_save_activate
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 603, in window_delete_event
+    self.save(self)
+  File "/usr/lib/python3/dist-packages/remarkable/RemarkableWindow.py", line 426, in save
+    file = open(self.name, 'w')
+FileNotFoundError: [Errno 2] 没有那个文件或目录: 'TCP/IP'
+TCP/IP does not exist, creating it
