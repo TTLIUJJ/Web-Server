@@ -29,7 +29,6 @@ public class JaynaHttpController {
     private int port;
     private int threadNum;
     private Selector selector;
-    private ExecutorService pool;
     private ThreadPoolExecutor threadPoolExecutor;
     private TimeMonitorService timeMonitorService;
 
@@ -86,14 +85,14 @@ public class JaynaHttpController {
 
 
     private void initAttribute(){
-//        this.pool = Executors.newFixedThreadPool(this.threadNum);
         try {
             threadPoolExecutor = new ThreadPoolExecutor(
                     2,
-                    10,
+                    2,
                     60,
                     TimeUnit.SECONDS,
                     new ArrayBlockingQueue<Runnable>(200),
+//                    new LinkedBlockingQueue<Runnable>(),
                     new RejectedStrategy()
             );
             timeMonitorService = new TimeMonitorService();
