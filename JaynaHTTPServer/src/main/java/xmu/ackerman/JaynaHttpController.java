@@ -1,12 +1,14 @@
 package xmu.ackerman;
 
 import xmu.ackerman.context.HttpRequest;
+import xmu.ackerman.service.MonitoredKey;
 import xmu.ackerman.service.TimeMonitorService;
 import xmu.ackerman.thread.ReadThread;
 import xmu.ackerman.thread.WriteThread;
-import xmu.ackerman.thread.RejectedStrategy;
+import xmu.ackerman.service.RejectedStrategy;
 import xmu.ackerman.service.RequestMessage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
@@ -25,38 +27,100 @@ import java.util.concurrent.*;
  */
 public class JaynaHttpController {
 
-    private final static String CONFIG_FILE = "config.properties";
+    private final static String CONFIG_FILE =  "config.properties";
     private int port;
-    private int threadNum;
     private Selector selector;
-    private ThreadPoolExecutor threadPoolExecutor;
+    private ExecutorService threadPoolExecutor;
     private TimeMonitorService timeMonitorService;
 
     //用于测试 使用keepAlive性能下降多少
     private boolean keepAlive;
 
-    public JaynaHttpController(boolean keepAlive){
-        this.keepAlive = keepAlive;
-        InputStream inputStream;
+    public JaynaHttpController(){ }
+
+    /**
+    * @Description: 从资源文件获取参数, 方便调试的时候使用
+    * @Date: 下午4:58 18-3-21
+    */
+    private void initProperties(){
         try{
-            inputStream = new FileInputStream(CONFIG_FILE);
+            File file = new File(CONFIG_FILE);
+            InputStream inputStream = new FileInputStream(file);
             Properties properties = new Properties();
             properties.load(inputStream);
-            if(properties.contains("port")){
-                port = Integer.parseInt(properties.getProperty("port"));
-            }
-            else{
-                port = 8080;
+
+            Map<String, Integer> propertyMap = new HashMap<String, Integer>();
+            for(Object o : properties.keySet()){
+                String key = (String) o;
+                int value = Integer.parseInt(properties.getProperty(key));
+                propertyMap.put(key, value);
+                System.out.println("key: " + key + ", value: " + value);
             }
 
-            if(properties.contains("threadNum")){
-                this.threadNum = Integer.parseInt(properties.getProperty("threadNum"));
+            //配置端口号
+            this.port = propertyMap.get("port");
+
+            //配置是否支持keep-alive
+            int keepAliveMode = propertyMap.get("keep-alive");
+            switch (keepAliveMode){
+                case 0 :
+                    this.keepAlive = false;
+                    break;
+
+                case 1:
+                    this.keepAlive = true;
+                    break;
+
+                default:
+                    throw new IllegalArgumentException("读取参数配置错误");
             }
-            else{
-                this.threadNum = 5;
+
+            //timeout时间
+            long timeout = (long)propertyMap.get("timeout");
+            MonitoredKey.setDefaultAliveTime(timeout);
+
+            //配置线程池参数
+            int corePoolSize = propertyMap.get("corePoolSize");
+            int maximumPoolSize = propertyMap.get("maximumPoolSize");
+            int keepAliveTime = propertyMap.get("keepAliveTime");
+            int queueSize = propertyMap.get("queueSize");
+            int workQueueMode = propertyMap.get("workQueueMode");
+
+            switch (workQueueMode){
+                case 0:
+                    LinkedBlockingQueue<Runnable> infiniteQueue = new LinkedBlockingQueue<Runnable>();
+
+                    this.threadPoolExecutor = new ThreadPoolExecutor(
+                            corePoolSize,
+                            maximumPoolSize,
+                            (long) keepAliveTime,
+                            TimeUnit.SECONDS,
+                            infiniteQueue,
+                            new RejectedStrategy());
+                    break;
+
+                case 1:
+                    ArrayBlockingQueue<Runnable> finiteQueue = new ArrayBlockingQueue<Runnable>(queueSize);
+
+                    this.threadPoolExecutor = new ThreadPoolExecutor(
+                            corePoolSize,
+                            maximumPoolSize,
+                            (long)keepAliveTime,
+                            TimeUnit.SECONDS,
+                            finiteQueue,
+                            new RejectedStrategy());
+                    break;
+
+
+                default:
+                    throw new IllegalArgumentException("读取参数配置错误");
             }
+
+            //配置其他参数
+            timeMonitorService = new TimeMonitorService();
+
         }catch (Exception e){
-            //TODO
+            System.out.println("Exception: " + e);
         }
     }
 
@@ -70,8 +134,6 @@ public class JaynaHttpController {
             InetSocketAddress address = new InetSocketAddress(this.port);
             serverSocket.bind(address);
 
-
-
             //将IO请求设置为非阻塞
             serverSocketChannel.configureBlocking(false);
 
@@ -84,29 +146,10 @@ public class JaynaHttpController {
     }
 
 
-    private void initAttribute(){
-        try {
-            threadPoolExecutor = new ThreadPoolExecutor(
-                    2,
-                    2,
-                    60,
-                    TimeUnit.SECONDS,
-                    new ArrayBlockingQueue<Runnable>(200),
-//                    new LinkedBlockingQueue<Runnable>(),
-                    new RejectedStrategy()
-            );
-            timeMonitorService = new TimeMonitorService();
-
-        }catch (Exception e){
-            System.out.println("InitAttribute: " + e);
-        }
-    }
-
-
     public void start(){
         try {
+            initProperties();
             initServerSocket();
-            initAttribute();
 
             System.out.println("start httpserver");
             while (true) {
@@ -172,18 +215,17 @@ public class JaynaHttpController {
         }catch (Exception e){
             //TODO
             System.out.println("aaa"+e);
+        }finally {
+            threadPoolExecutor.shutdownNow();
         }
     }
 
     public static void main(String []args){
         try {
-            boolean keepAlive = false;
-            if(args.length > 0){
-                keepAlive = Boolean.parseBoolean(args[0]);
-            }
-            JaynaHttpController controller = new JaynaHttpController(keepAlive);
+            JaynaHttpController controller = new JaynaHttpController();
             controller.start();
-        }catch (Exception e){
+
+        }catch (Exception e) {
             System.out.println("main: " + e);
         }
     }

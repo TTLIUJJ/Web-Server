@@ -1,4 +1,4 @@
-package xmu.ackerman.thread;
+package xmu.ackerman.service;
 
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -14,7 +14,7 @@ public class RejectedStrategy implements RejectedExecutionHandler{
 
     public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
         try {
-//            System.out.println("拒绝任务计数: " + atomicInteger.incrementAndGet());
+            System.out.println("拒绝任务计数: " + atomicInteger.incrementAndGet());
         }catch (Exception e){
 //            System.out.println("拒绝策略异常" + e);
         }

@@ -9,7 +9,7 @@ import java.util.Date;
  * @Date: Created in 上午12:02 18-3-19
  */
 public class MonitoredKey {
-    public static final int DEFAULT_ALIVE_TIME = 200;    // ms
+    private static long DEFAULT_ALIVE_TIME = 200;    // ms
 
     private SelectionKey key;
 
@@ -36,5 +36,13 @@ public class MonitoredKey {
 
     public void setExpireTime(long expireTime) {
         this.expireTime = expireTime;
+    }
+
+    public static long getDefaultAliveTime() {
+        return DEFAULT_ALIVE_TIME;
+    }
+
+    public static void setDefaultAliveTime(long defaultAliveTime) {
+        DEFAULT_ALIVE_TIME = defaultAliveTime;
     }
 }
