@@ -1,0 +1,54 @@
+# Java并发
+
+
+#### 等待多线程完成的CountDownLatch
+
+CountDownLatch允许一个或多个线程等待其他线程完成操作。
+
+```java
+public class CountDownLatchTest {
+
+    public static void main(String []args){
+        CountDownLatch countDownLatch = new CountDownLatch(3);
+
+        for(int i = 0; i < 10; ++i){
+            Runnable r = new MyRunner(countDownLatch);
+            Thread t = new Thread(r);
+            t.start();
+        }
+
+        try {
+            countDownLatch.await();
+            System.out.println("countDownLatch Done");
+        }catch (Exception e){
+
+        }
+    }
+}
+
+
+class MyRunner implements Runnable{
+
+    private CountDownLatch countDownLatch;
+
+    public MyRunner(CountDownLatch countDownLatch){
+        this.countDownLatch = countDownLatch;
+    }
+    public void run(){
+        try{
+            TimeUnit.SECONDS.sleep(2);
+        }catch (Exception e){
+
+        }
+        countDownLatch.countDown();
+        System.out.println("Hello World");
+
+    }
+}
+```
+
+测试上面代码，主线程总是在MyRunner线程执行三次“Hello World”之后，从CountLatch.await()返回。
+
+相当于join()操作，在主线程调用线程A，等待线程A结束之后，主线程才继续运行。
+
+

@@ -49,21 +49,6 @@ public class TimeMonitorService {
                 }
             }
 
-//            while (!queue.isEmpty()) {
-//                //这个程序会删除大量kye, peek()操作增加工作量
-//                MonitoredKey monitoredKey = queue.remove();
-//                if (now > monitoredKey.getExpireTime()) {
-//                    try {
-//                        monitoredKey.getKey().channel().close();
-//                    } catch (Exception e) {
-//                        System.out.println("checkExpiredKey key.channel.close " + e);
-//                    }
-//                    continue;
-//                }
-//                //次key不是过期的 重新入队
-//                queue.add(monitoredKey);
-//                break;
-//            }
         }catch (Exception e){
             System.out.println("checkExpiredKey " + e);
         }
