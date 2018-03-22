@@ -172,9 +172,9 @@ public class JaynaHttpController {
                     continue;
                 }
 
-                if(keepAlive) {
-                    timeMonitorService.checkExpiredKey();
-                }
+//                if(keepAlive) {
+//                    timeMonitorService.checkExpiredKey();
+//                }
                 Set<SelectionKey> readyKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = readyKeys.iterator();
 
@@ -194,9 +194,9 @@ public class JaynaHttpController {
 
                                 SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
                                 clientKey.attach(request);
-                                if(keepAlive) {
-                                    timeMonitorService.addMonitorKey(clientKey);
-                                }
+//                                if(keepAlive) {
+//                                    timeMonitorService.addMonitorKey(clientKey);
+//                                }
 
                             }
                         } else if (key.isValid() && key.isReadable()) {
@@ -204,9 +204,9 @@ public class JaynaHttpController {
                             //防止多个线程 处理一个READ_KEY
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
 
-//                            MonitorThread monitorThread = new MonitorThread(key);
-//                            Runnable r = new Thread(monitorThread);
-//                            timePoolExecutor.schedule(r, timeout, TimeUnit.MILLISECONDS);
+                            MonitorThread monitorThread = new MonitorThread(key);
+                            Runnable r = new Thread(monitorThread);
+                            timePoolExecutor.schedule(r, timeout, TimeUnit.MILLISECONDS);
 
                             ReadThread readThread = new ReadThread(selector, key);
                             Thread thread = new Thread(readThread);
