@@ -1,8 +1,6 @@
 package xmu.ackerman;
 
 import xmu.ackerman.context.HttpRequest;
-import xmu.ackerman.service.MonitoredKey;
-import xmu.ackerman.service.TimeMonitorService;
 import xmu.ackerman.thread.MonitorThread;
 import xmu.ackerman.thread.ReadThread;
 import xmu.ackerman.thread.WriteThread;
@@ -34,9 +32,6 @@ public class JaynaHttpController {
     private ExecutorService threadPoolExecutor;
     private ScheduledThreadPoolExecutor timePoolExecutor;
 
-    private TimeMonitorService timeMonitorService;
-
-
     //用于测试 使用keepAlive性能下降多少
     private boolean keepAlive;
     private long timeout;
@@ -55,11 +50,13 @@ public class JaynaHttpController {
             properties.load(inputStream);
 
             Map<String, Integer> propertyMap = new HashMap<String, Integer>();
+
+            //打印参数列表
             for(Object o : properties.keySet()){
                 String key = (String) o;
                 int value = Integer.parseInt(properties.getProperty(key));
                 propertyMap.put(key, value);
-                System.out.println("key: " + key + ", value: " + value);
+                System.out.println( key + ": " + value);
             }
 
             //配置端口号
@@ -81,9 +78,8 @@ public class JaynaHttpController {
             }
 
             //timeout时间
-            long timeout = (long)propertyMap.get("timeout");
-            this.timeout = timeout;
-            MonitoredKey.setDefaultAliveTime(timeout);
+            this.timeout = (long)propertyMap.get("timeout");
+
 
             //配置线程池参数
             int corePoolSize = propertyMap.get("corePoolSize");
@@ -123,9 +119,7 @@ public class JaynaHttpController {
             }
 
             //配置其他参数
-            timeMonitorService = new TimeMonitorService();
-
-//            this.timePoolExecutor = new ScheduledThreadPoolExecutor(1);
+            this.timePoolExecutor = new ScheduledThreadPoolExecutor(1);
 
         }catch (Exception e){
             System.out.println("Exception: " + e);
@@ -159,7 +153,7 @@ public class JaynaHttpController {
             initProperties();
             initServerSocket();
 
-            System.out.println("start httpserver");
+            System.out.println("start JaynaHTTPServer");
             while (true) {
                 int readyChannels = 0;
                 try {
@@ -171,10 +165,6 @@ public class JaynaHttpController {
                 if (readyChannels == 0) {
                     continue;
                 }
-
-//                if(keepAlive) {
-//                    timeMonitorService.checkExpiredKey();
-//                }
                 Set<SelectionKey> readyKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = readyKeys.iterator();
 
@@ -194,13 +184,8 @@ public class JaynaHttpController {
 
                                 SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
                                 clientKey.attach(request);
-//                                if(keepAlive) {
-//                                    timeMonitorService.addMonitorKey(clientKey);
-//                                }
-
                             }
                         } else if (key.isValid() && key.isReadable()) {
-//                            System.out.println("read");
                             //防止多个线程 处理一个READ_KEY
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
 
@@ -228,7 +213,7 @@ public class JaynaHttpController {
             }
         }catch (Exception e){
             //TODO
-            System.out.println("aaa"+e);
+            System.out.println("start(): "+e);
         }finally {
             threadPoolExecutor.shutdownNow();
         }
@@ -238,8 +223,6 @@ public class JaynaHttpController {
         try {
             JaynaHttpController controller = new JaynaHttpController();
             controller.start();
-            ScheduledExecutorService service = Executors.newScheduledThreadPool(2);
-
         }catch (Exception e) {
             System.out.println("main: " + e);
         }
