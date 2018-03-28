@@ -34,7 +34,7 @@ public class ReadThread implements Runnable {
             RequestParseState state = RequestService.recvFrom(request, key);
             switch (state) {
                 case PARSE_ERROR:
-                    key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
+                    request = null;
                     key.channel().close();
                     break;
                 case PARSE_MORE:
@@ -50,7 +50,7 @@ public class ReadThread implements Runnable {
                     break;
             }
         }catch (Exception e){
-//            System.out.println("ReadThread Exception: " + e);
+            System.out.println("ReadThread Exception: " + e);
         }
     }
 }

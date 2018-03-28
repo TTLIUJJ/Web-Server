@@ -10,29 +10,30 @@ import java.util.*;
  * @Date: Created in 下午10:38 18-3-15
  */
 public class RequestMessage {
-    private ArrayList<Byte> message = new ArrayList<Byte>();
-
+    private ArrayList<Byte> message = new ArrayList<Byte>();    //请求原始数据
+                                                            //避免在多次读取数据中, 丢失上次读取的数据
     private RequestParseState state;
     private int pos;    //指向message的位置
-    private int pbuf;  //指向当前buff的位置, buff 至少要读取两次
-                        //当buff缓冲太小, 读取新的buff pbuff要置0
+    private int pbuf;   //指向当前buff的位置,
+                        //当buff缓冲太小, buff 至少要读取两次
+                        //读取新的buff pbuff要置0
 
     private int methodBeg;
     private int methodEnd;
-    private String method;
+    private String method;  //请求方法
 
     private int uriBeg;
     private int uriEnd;
-    private String uri;
+    private String uri;     //请求资源
 
-    private int major;
+    private int major;      //协议版本号
     private int minor;
 
     private int keyBeg;
     private int keyEnd;
     private int valueBeg;
     private int valueEnd;
-    private Map<String, String> headers = new HashMap<String, String>();
+    private Map<String, String> headers = new HashMap<String, String>();    //请求头属性
 
 
     public RequestMessage(){

@@ -42,8 +42,11 @@ public class RequestService {
             //可能 读取在等待更多的数据 进行parse_more
             int cnt = client.read(buffer);
 
-            if(cnt <= 0){
+            if(cnt < 0){
                 return requestError(key);
+            }
+            else if(cnt == 0){
+                return RequestParseState.PARSE_MORE;
             }
             byte [] bytes = buffer.array();
 
@@ -70,7 +73,7 @@ public class RequestService {
 
 
         }catch (Exception e){
-            System.out.println(e);
+            System.out.println("recvFrom: " + e);
             //TODO
         }
 
@@ -81,7 +84,6 @@ public class RequestService {
     * @Date: 上午10:52 18-3-16
     */
     public static RequestParseState requestError(SelectionKey key){
-
 
         return RequestParseState.PARSE_ERROR;
     }

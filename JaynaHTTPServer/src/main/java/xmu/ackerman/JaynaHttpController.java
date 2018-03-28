@@ -1,8 +1,10 @@
 package xmu.ackerman;
 
 import xmu.ackerman.context.HttpRequest;
+import xmu.ackerman.service.MonitorService;
 import xmu.ackerman.thread.MonitorThread;
 import xmu.ackerman.thread.ReadThread;
+import xmu.ackerman.thread.TimeThread;
 import xmu.ackerman.thread.WriteThread;
 import xmu.ackerman.service.RejectedStrategy;
 import xmu.ackerman.service.RequestMessage;
@@ -31,6 +33,8 @@ public class JaynaHttpController {
     private Selector selector;
     private ExecutorService threadPoolExecutor;
     private ScheduledThreadPoolExecutor timePoolExecutor;
+
+    private MonitorService monitorService;
 
     //用于测试 使用keepAlive性能下降多少
     private boolean keepAlive;
@@ -80,7 +84,6 @@ public class JaynaHttpController {
             //timeout时间
             this.timeout = (long)propertyMap.get("timeout");
 
-
             //配置线程池参数
             int corePoolSize = propertyMap.get("corePoolSize");
             int maximumPoolSize = propertyMap.get("maximumPoolSize");
@@ -118,12 +121,20 @@ public class JaynaHttpController {
                     throw new IllegalArgumentException("读取参数配置错误");
             }
 
-            //配置其他参数
-            this.timePoolExecutor = new ScheduledThreadPoolExecutor(1);
-
         }catch (Exception e){
             System.out.println("Exception: " + e);
         }
+    }
+
+    /**
+    * @Description: 初始辅助工具
+    * @Date: 下午9:08 18-3-23
+    */
+    private void initScheduledTask(){
+        this.monitorService = new MonitorService(this.timeout);
+        this.timePoolExecutor = new ScheduledThreadPoolExecutor(1);
+        Runnable r = new TimeThread(this.monitorService);
+        this.timePoolExecutor.scheduleWithFixedDelay(r, 3000, this.timeout, TimeUnit.MILLISECONDS);
     }
 
     //初始化服务器通道, 并注册selector
@@ -151,6 +162,7 @@ public class JaynaHttpController {
     public void start(){
         try {
             initProperties();
+            initScheduledTask();
             initServerSocket();
 
             System.out.println("start JaynaHTTPServer");
@@ -184,15 +196,18 @@ public class JaynaHttpController {
 
                                 SelectionKey clientKey = client.register(selector, SelectionKey.OP_READ);
                                 clientKey.attach(request);
+                                if(keepAlive) {
+                                    this.monitorService.putTask(clientKey);
+                                }
                             }
                         } else if (key.isValid() && key.isReadable()) {
                             //防止多个线程 处理一个READ_KEY
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_READ));
-
-                            MonitorThread monitorThread = new MonitorThread(key);
-                            Runnable r = new Thread(monitorThread);
-                            timePoolExecutor.schedule(r, timeout, TimeUnit.MILLISECONDS);
-
+//                            if(keepAlive) {
+//                                MonitorThread monitorThread = new MonitorThread(key);
+//                                Runnable r = new Thread(monitorThread);
+//                                timePoolExecutor.schedule(r, timeout, TimeUnit.MILLISECONDS);
+//                            }
                             ReadThread readThread = new ReadThread(selector, key);
                             Thread thread = new Thread(readThread);
                             threadPoolExecutor.execute(thread);
@@ -200,7 +215,7 @@ public class JaynaHttpController {
                         } else if (key.isValid() && key.isWritable()) {
                             key.interestOps(key.interestOps() & (~SelectionKey.OP_WRITE));
                             HttpRequest request = (HttpRequest) key.attachment();
-                            WriteThread writeThread = new WriteThread(request, key, keepAlive);
+                            WriteThread writeThread = new WriteThread(request, key, keepAlive, this.monitorService);
                             Thread thread = new Thread(writeThread);
                             threadPoolExecutor.execute(thread);
                         }

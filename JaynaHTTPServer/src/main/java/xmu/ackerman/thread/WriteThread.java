@@ -5,6 +5,7 @@ import xmu.ackerman.context.Context;
 import xmu.ackerman.context.HttpContext;
 import xmu.ackerman.context.HttpRequest;
 import xmu.ackerman.handler.HtmlHandler;
+import xmu.ackerman.service.MonitorService;
 import xmu.ackerman.service.RequestMessage;
 import xmu.ackerman.service.ResponseService;
 
@@ -33,9 +34,12 @@ public class WriteThread implements Runnable {
 
     private boolean keepAlive;
 
+    private MonitorService monitorService;
+
     public WriteThread(HttpRequest request,
                        SelectionKey key,
-                       boolean keepAlive){
+                       boolean keepAlive,
+                       MonitorService monitorService){
 
         this.context = new HttpContext();
         this.requestMessage = request.getMessage();
@@ -43,6 +47,8 @@ public class WriteThread implements Runnable {
         number = atomicInteger.incrementAndGet();
         this.request = request;
         this.keepAlive = keepAlive;
+
+        this.monitorService = monitorService;
     }
 
     public String getThreadName(){
@@ -70,13 +76,14 @@ public class WriteThread implements Runnable {
             resetHttpRequest();
 
         }catch (Exception e){
-//            System.out.println("HttpThread Exception" + e);
+            System.out.println("WriteThread Exception" + e);
         }finally {
             try {
 
                 if(keepAlive) {
                     //保持连接状态, 通道注册读事件
                     key.interestOps(SelectionKey.OP_READ);
+                    monitorService.updateTask(key);
                 }
                 else{
                     //立即关闭通道

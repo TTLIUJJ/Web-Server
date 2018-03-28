@@ -125,7 +125,7 @@ public class ResponseService {
 
         }catch (Exception e){
             //TODO
-//            System.out.println("write: " + e);
+            System.out.println("write: " + e);
         }
     }
 
@@ -190,7 +190,7 @@ public class ResponseService {
 
         header.append("HTTP/1.1 " + response.getStatusCode() + " " + response.getStatusMsg() + "\r\n");
         header.append("Connection: keep-alive\r\n");
-        header.append("Keep-Alive: timeout=50\r\n");    // 50ms
+        header.append("Keep-Alive: timeout=200\r\n");    // 200ms
         header.append("Content-type: " + response.getContentType() + "\r\n");
         header.append("Content-length: " + response.getContentLength() + "\r\n");
         header.append("Last-Modified: " + now + "\r\n");
