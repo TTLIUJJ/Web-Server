@@ -21,15 +21,16 @@ public class HttpRequest implements Request {
 
     private RequestMessage message;
 
-    public HttpRequest(RequestMessage rs){
-        this.method = rs.getMethod();
-        this.uri = rs.getUri();
-        this.protocol = rs.getMajor() + "/" + rs.getMinor();
-        this.headers = rs.getHeaders();
-        this.message = rs;
-
+    public HttpRequest(){
+        this.message = new RequestMessage();
     }
 
+    public void initRequestAttribute(){
+        this.method = message.getMethod();
+        this.uri = message.getUri();
+        this.protocol = message.getMajor() + "/" + message.getMinor();
+        this.headers = message.getHeaders();
+    }
 
     public String getMethod() {
         return method;
@@ -63,12 +64,13 @@ public class HttpRequest implements Request {
         this.headers = headers;
     }
 
-    public RequestMessage getMessage() {
+    public RequestMessage getRequestMessage() {
         return message;
     }
 
-    public void setMessage(RequestMessage message) {
+    public void setRequestMessage(RequestMessage message) {
         this.message = message;
     }
+
 
 }

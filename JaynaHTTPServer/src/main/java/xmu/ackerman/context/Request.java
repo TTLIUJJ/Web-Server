@@ -1,5 +1,7 @@
 package xmu.ackerman.context;
 
+import xmu.ackerman.service.RequestMessage;
+
 import java.util.Map;
 
 /**
@@ -38,4 +40,19 @@ public interface Request {
     */
     public Map<String, String> getHeaders();
     public void setHeaders(Map<String, String> headers);
+
+    /**
+    * @Description: 获取请求
+    * @Date: 下午6:28 18-3-28
+    */
+    public RequestMessage getRequestMessage();
+    public void setRequestMessage(RequestMessage requestMessage);
+
+
+    /**
+    * @Description: 初始化请求属性信息
+    * @Date: 下午7:53 18-3-28
+    */
+    public void initRequestAttribute();
+
 }

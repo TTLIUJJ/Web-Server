@@ -29,7 +29,6 @@ public class HtmlHandler implements Handler {
         else if(method.equals(Request.POST)){
             this.doPost(context);
         }
-        sendResponse(context);
     }
 
     public void doGet(Context context){
@@ -46,8 +45,4 @@ public class HtmlHandler implements Handler {
 
 
     public String getFilename(){ return ""; }
-
-    private void sendResponse(Context context){
-
-    }
 }

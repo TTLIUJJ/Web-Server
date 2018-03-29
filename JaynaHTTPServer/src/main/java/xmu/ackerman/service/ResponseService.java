@@ -1,5 +1,6 @@
 package xmu.ackerman.service;
 
+import xmu.ackerman.JaynaHttpController;
 import xmu.ackerman.context.Context;
 import xmu.ackerman.context.Request;
 import xmu.ackerman.context.Response;
@@ -62,7 +63,6 @@ public class ResponseService {
 
         String contentType = ResponseService.getContentType(filename);
         response.setContentType(contentType);
-
     }
 
 
@@ -118,7 +118,7 @@ public class ResponseService {
         String message = getResponseMessage(response);
         SocketChannel client;
         try{
-            SelectionKey key = response.getSelectionKey();
+            SelectionKey key = context.getSelectionKey();
             client = (SocketChannel) key.channel();
             ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
             client.write(buffer);
@@ -190,7 +190,9 @@ public class ResponseService {
 
         header.append("HTTP/1.1 " + response.getStatusCode() + " " + response.getStatusMsg() + "\r\n");
         header.append("Connection: keep-alive\r\n");
-        header.append("Keep-Alive: timeout=200\r\n");    // 200ms
+        if(JaynaHttpController.keepAlive) {
+            header.append("Keep-Alive: timeout=" + JaynaHttpController.timeout + "\r\n");
+        }
         header.append("Content-type: " + response.getContentType() + "\r\n");
         header.append("Content-length: " + response.getContentLength() + "\r\n");
         header.append("Last-Modified: " + now + "\r\n");

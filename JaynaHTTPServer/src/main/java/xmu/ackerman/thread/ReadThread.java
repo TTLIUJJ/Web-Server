@@ -1,6 +1,7 @@
 package xmu.ackerman.thread;
 
-import xmu.ackerman.context.HttpRequest;
+import xmu.ackerman.JaynaHttpController;
+import xmu.ackerman.context.Context;
 import xmu.ackerman.service.RequestService;
 import xmu.ackerman.utils.RequestParseState;
 
@@ -17,33 +18,35 @@ public class ReadThread implements Runnable {
 
     private Selector selector;
 
-    private SelectionKey key;
+    private SelectionKey selectionKey;
 
-    public ReadThread(Selector selector, SelectionKey key){
-        this.selector = selector;
-        this.key = key;
+    private Context context;
+
+    public ReadThread(Context context){
+        this.context = context;
+        this.selector = context.getSelector();
+        this.selectionKey = context.getSelectionKey();
     }
 
     public void run(){
         try {
 
-            SocketChannel client = (SocketChannel) key.channel();
-            HttpRequest request = (HttpRequest) key.attachment();
             //接受的数据包有误, 不接受此次请求
             //并不是404错误, 而是发送不能识别或者错误的数据包
-            RequestParseState state = RequestService.recvFrom(request, key);
+            SocketChannel client = (SocketChannel) selectionKey.channel();
+            RequestParseState state = RequestService.recvFrom(context);
+
             switch (state) {
                 case PARSE_ERROR:
-                    request = null;
-                    key.channel().close();
+                    context = null;
+                    JaynaHttpController.monitorService.removeFutureTaskAndCloseSocket(selectionKey);
                     break;
                 case PARSE_MORE:
-                    client.register(selector, SelectionKey.OP_READ, request);
+                    client.register(selector, SelectionKey.OP_READ, context);
                     break;
 
                 case PARSE_OK:
-                    client.register(selector, SelectionKey.OP_WRITE);
-                    key.attach(request);
+                    client.register(selector, SelectionKey.OP_WRITE, context);
                     // 没有这个  总是被卡住
                     selector.wakeup();
 

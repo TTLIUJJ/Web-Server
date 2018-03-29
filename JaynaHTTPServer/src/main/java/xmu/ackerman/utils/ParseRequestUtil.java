@@ -1,5 +1,8 @@
 package xmu.ackerman.utils;
 
+import xmu.ackerman.context.Context;
+import xmu.ackerman.context.HttpContext;
+import xmu.ackerman.context.HttpRequest;
 import xmu.ackerman.service.RequestMessage;
 
 import java.util.ArrayList;
@@ -16,7 +19,9 @@ public class ParseRequestUtil {
     * @Description: 解析请求行
     * @Date: 下午1:05 18-3-15
     */
-    public static RequestParseState parseHttpRequestLine(RequestMessage rs, byte []buf){
+    public static RequestParseState parseHttpRequestLine(Context context, byte []buf){
+        RequestMessage rs = context.getRequest().getRequestMessage();
+
         RequestParseState state = rs.getState();
         RequestParseState error = RequestParseState.PARSE_REQUEST_LINE_EXCEPTION;
         ArrayList<Byte> message = rs.getMessage();
@@ -220,7 +225,8 @@ public class ParseRequestUtil {
     * @Description: 解析请求头
     * @Date: 下午1:53 18-3-15
     */
-    public static RequestParseState parseHttpRequestHeader(RequestMessage rs, byte []buf){
+    public static RequestParseState parseHttpRequestHeader(Context context, byte []buf){
+        RequestMessage rs = context.getRequest().getRequestMessage();
         RequestParseState state = rs.getState();
         RequestParseState error = RequestParseState.PARSE_REQUEST_HEADER_EXCEPTION;
         ArrayList<Byte> message = rs.getMessage();
@@ -342,6 +348,10 @@ public class ParseRequestUtil {
         return false;
     }
 
+    /**
+    * @Description: 数字范围
+    * @Date: 下午6:03 18-3-28
+    */
     private static boolean DIGIT0TO9(char ch){
         if(ch < '0' || ch > '9'){ return false; }
         return true;
@@ -352,6 +362,10 @@ public class ParseRequestUtil {
         return true;
     }
 
+    /**
+    * @Description: 检查请求方法
+    * @Date: 下午6:03 18-3-28
+    */
     private static boolean checkMethod(RequestMessage rs){
         ArrayList<Byte> message = rs.getMessage();
         StringBuilder method = new StringBuilder();
@@ -377,6 +391,10 @@ public class ParseRequestUtil {
         return false;
     }
 
+    /**
+    * @Description: 检查uri格式
+    * @Date: 下午6:02 18-3-28
+    */
     private static void checkUri(RequestMessage rs){
         try {
             ArrayList<Byte> message = rs.getMessage();
@@ -399,6 +417,10 @@ public class ParseRequestUtil {
         }
     }
 
+    /**
+    * @Description: 添加请求头属性
+    * @Date: 下午6:02 18-3-28
+    */
     private static void addHeader(RequestMessage rs) {
         try {
             ArrayList<Byte> message = rs.getMessage();

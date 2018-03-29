@@ -1,16 +1,13 @@
 package xmu.ackerman.service;
 
-import xmu.ackerman.context.HttpRequest;
-import xmu.ackerman.context.Request;
+import xmu.ackerman.context.Context;
+import xmu.ackerman.context.HttpContext;
 import xmu.ackerman.utils.ParseRequestUtil;
 import xmu.ackerman.utils.RequestParseState;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.SocketChannel;
-import java.util.Date;
-import java.util.PriorityQueue;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 /**
@@ -22,17 +19,14 @@ public class RequestService {
     private static int MAX_BUF = 1024;
 
 
-    private static Logger logger = Logger.getLogger("Request.Service");
-
-
-
     /**
     * @Description: 从通道中获取数据, 考虑到不能一次全部获取的情况, 测试未通过
      *                 不能在这边循环 否则主线程会卡住
     * @Date: 上午10:52 18-3-16
     */
-    public static RequestParseState recvFrom(HttpRequest request, SelectionKey key){
-        RequestMessage requestMessage = request.getMessage();
+    public static RequestParseState recvFrom(Context context){
+        SelectionKey key = context.getSelectionKey();
+
         SocketChannel client = (SocketChannel) key.channel();
         ByteBuffer buffer = ByteBuffer.allocate(MAX_BUF);
         RequestParseState state;
@@ -50,7 +44,7 @@ public class RequestService {
             }
             byte [] bytes = buffer.array();
 
-            state = ParseRequestUtil.parseHttpRequestLine(requestMessage, bytes);
+            state = ParseRequestUtil.parseHttpRequestLine(context, bytes);
             if(state == RequestParseState.PARSE_MORE){
                 return state;
             }
@@ -60,11 +54,12 @@ public class RequestService {
 
             // 目前只支持处理请求 "GET"
             // 还未支持 "POST"
-            state = ParseRequestUtil.parseHttpRequestHeader(requestMessage, bytes);
+            state = ParseRequestUtil.parseHttpRequestHeader(context, bytes);
             if(state == RequestParseState.PARSE_MORE){
                 return state;
             }
             else if(state == RequestParseState.PARSE_OK){
+                context.getRequest().initRequestAttribute();
                 return state;
             }
             else{

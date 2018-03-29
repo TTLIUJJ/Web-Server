@@ -13,9 +13,6 @@ public interface Response {
 
     public static final String SERVER_NAME = "Jayna";
 
-    public SelectionKey getSelectionKey();
-    public void setSelectionKey(SelectionKey key);
-
     public int getStatusCode();
     public void setStatusCode(int statusCode);
 

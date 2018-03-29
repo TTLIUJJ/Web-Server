@@ -10,8 +10,6 @@ import java.nio.channels.SelectionKey;
  * @Date: Created in 上午10:15 18-3-15
  */
 public class HttpResponse implements Response {
-    private SelectionKey key;
-
     private int StatusCode;
 
     private String contentType;
@@ -27,18 +25,6 @@ public class HttpResponse implements Response {
     //用来识别 返回回复头的类型
     //默认为异常... 有点奇怪吧 目前这样组织代码比较方便
     private boolean exception = true;
-
-    public HttpResponse(SelectionKey key){
-        this.key = key;
-    }
-
-    public SelectionKey getSelectionKey() {
-        return key;
-    }
-
-    public void setSelectionKey(SelectionKey key) {
-        this.key = key;
-    }
 
     public int getStatusCode() {
         return StatusCode;

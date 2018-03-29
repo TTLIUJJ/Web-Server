@@ -1,25 +1,27 @@
 package xmu.ackerman.thread;
 
 import java.nio.channels.SelectionKey;
+import java.util.concurrent.Callable;
 
 /**
  * @Author: Ackerman
  * @Description:
- * @Date: Created in 下午7:25 18-3-21
+ * @Date: Created in 下午11:10 18-3-28
  */
-public class MonitorThread implements Runnable {
+public class CancelTask implements Callable<Void> {
 
     private SelectionKey key;
 
-    public MonitorThread(SelectionKey key){
+    public CancelTask(SelectionKey key){
         this.key = key;
     }
 
-    public void run(){
+    public Void call(){
         try{
             key.channel().close();
         }catch (Exception e){
-            System.out.println("MonitorThread Exception: " + e);
+            System.out.println("call: " + e);
         }
+        return null;
     }
 }
