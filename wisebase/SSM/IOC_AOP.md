@@ -21,7 +21,7 @@ IOC容器初始化完成之后，才有依赖注入（DI）的功能。
 
 Bean实例对象：Dog和Master
 
-```
+```java
 public interface Pet {
     public void sound(int times);
 }
@@ -50,7 +50,7 @@ public class Master {
 
 IOC容器：实现BeanFactory接口的ClassPathXmlApplicationContext
 
-```
+```java
 public interface BeanFactory {
     public Object getBean(String id);
 }
@@ -101,7 +101,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
 
 测试类
 
-```
+```java
 public class TestMain {
 
     public static void main(String []args) throws Throwable{
@@ -117,3 +117,4 @@ public class TestMain {
 ```
 
 ## IOC和工厂模式的区别
+
