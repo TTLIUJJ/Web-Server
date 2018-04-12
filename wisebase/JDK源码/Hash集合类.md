@@ -1,6 +1,4 @@
 
-
-
 ## HashTable和HashMap
 
 #### NULL键和值
