@@ -1,7 +1,5 @@
-# List集合类
 
-
-## ArrayList
+# ArrayList
 
 ArrayList是一个数组队列，相当于动态数组，与普通数组相比，它的容量可以动态增长。
 - 继承AbstractLis，实现了List接口，它是一个数组队列，提供了相关的添加、删除、修改、遍历等功能；
@@ -290,6 +288,4 @@ public class ArrayList<E> extends AbstractList<E>
 ```
 
 modCount的作用： List有个迭代器，在迭代的过程中，每次都要检查一个modCount是否变化，如果变化了，迭代器处理可能出现不可预知的情况。modCount的作用是迭代器在遍历的时做线程安全检查的。防止一个线程正在迭代遍历，另一个线程修改了这个列表的结构。
-
-## LinkedList
 

@@ -1,0 +1,175 @@
+# Linux常用命令大全
+
+- 文件命令
+	- [locate](#locate)
+	- [find](#find)
+	- [grep](#grep)
+	- [chmod](#chmod)
+	- [chown](#chown)	
+- 进程指令
+	- [ps](#ps)
+	- [top](#top)
+	- [kill](#kill)
+- 网络命令
+	- [netstat](#netstat)
+	- [telnet](#telnet)
+
+
+
+#### locate 
+
+优点：搜索速度较快，耗费资源少；
+
+缺点：只能按文件名搜索
+
+```shell
+$ locate 数据库.md
+/home/ackerman/数据库.md
+/home/ackerman/github/jaynaHttpServer/wisebase/数据库/数据库.md
+```
+
+#### find
+
+```shell
+$ find [搜索范围] [搜索条件] xxxx
+```
+
+```
+$ find / -name "aaa.txt" 	# -iname 不区分大小写
+$ find / -user "ackerman"
+$ find / -name "aa[bc]a.txt"
+$ find ./ -mtime -10	//搜索当前目录下，10天内内容更新过的文件 
+					// mtime 更新文件的内容
+					// ctime 更新文件的属性
+					// atime 被访问
+					
+					// +10 10天以前
+					// -10  10天以内
+					//  10 刚好第10天内的那24小时
+$ find / -size +20k -a -size -5M -exec cat  {} \;	
+//查找根目录下大于20k，小于5M的文件，并且执行cat命令
+// -a 逻辑与and
+// -o 逻辑或or
+// -exec xxx {} \; 对搜索结果执行xxx操作命令
+```
+
+#### grep
+
+```shell
+$ cat "查找.md" | grep "return"	//根据cat返回的结果，执行grep命令
+
+$ grep [选项] 字符串 文件名 
+$ grep -i "return" "查找.md"	//显示md文件里出现return字符串的行
+								// -i 忽略大小写
+								// -v 排除指定的字符串
+```
+
+#### ps
+
+查看进程的状态
+
+```shell
+$ ps -aux
+// USER	PID	%CPU	%MEM	VSZ	RSS	TTY 	STAT	START	TIME	COMMAND
+// USER 用户名
+// PID 进程ID
+// PPID 父进程的进程ID
+//SID 会话ID
+// %CPU 进程的CPU占用率
+// %MEM 进程的内存占用率
+// VSZ 进程使用的虚拟内存的大小
+// RSS 进程使用的实际内存大小
+// TTY 进程关联的终端
+// STAT 进程的状态
+//	R 正在运行或者在运行队列中等待
+//	S 睡眠
+//	I 空闲
+//	Z 僵死
+//	< 高优先级别进程
+//	N低优先级别
+//START 进程启动时间
+//TIME 进程使用的总CPU时间
+//COMMAND 正在执行进程的命令行
+```
+
+#### top
+
+ps命令是显示瞬时进程状态，并不动态连续
+top命令对运行状态进行时间性的动态监控
+
+top一般用于查看系统的健康状态，进程维度
+
+```shell
+$ top -d 10 -n 3 -b > aaa.log
+# -d：top刷新时间，默认是3秒
+# -n：执行3次
+# -b：批处理模式输出到aaa.log
+```
+
+```
+$ top
+#一次top命令的快照
+
+top - 08:18:14 up 10 min,  1 user,  load average: 0.34, 0.52, 0.38
+Tasks: 177 total,   1 running, 176 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.2 us,  0.7 sy,  0.0 ni, 97.4 id,  0.1 wa,  0.0 hi,  0.6 si,  0.0 st
+
+load average：1分钟，5分钟，15分钟CPU的平均负载
+%Cpus(s)：用户占比，系统占比，改变过优先级别的用户进程占比，空闲进程占比
+```
+
+#### kill
+
+```
+$ kill 6379
+# 先用ps指令查出进程号，再使用kill命令
+
+$ kill -9 639
+# 强制终止
+```
+
+#### chomd
+
+用来修改文件读、写和执行三种权限
+
+```shell
+$ chomd [-p] filename
+
+$ chomd 777 filename    // rwx rwx rwx
+						// 111 111 111
+						// u(user) g(group) o(other)
+						
+$ chmod u+w filename	//设置filename文件的用户权限-可写
+$ chomd g-x filename 	//设置filename文件的用户组权限-不可执行
+```
+
+#### chown
+
+chown命令用来改变某个文件（或目录）的所有者（所属组），该命令可以向某个用户授权。
+
+```sh
+$ chown -R ackerman /usr/java
+
+# - R: recursive，递归处理，将指定目录下的文件及其子目录一并处理 
+```
+
+#### telnet
+
+```shell
+#查看某个端口是否可用
+$ telnet 101.132.181.76 8888
+```
+
+#### netstat
+
+查看网络连接状态
+
+```
+$ netstat -ant
+# -a 所有socket，包括正在监听的
+# -c 每隔1秒就刷新
+# -n 以网络IP地址替换计算机名字
+# -t 显示TCP协议的连接状态
+# -u 显示UDP协议的连接状态
+```
+
