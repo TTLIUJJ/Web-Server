@@ -98,7 +98,7 @@ mysql >SELECT * FROM t1 NATURAL JOIN t2;
 用来分析SQL语句，分析结果中比较重要的字段有：
 
 - select_type：查询类型，包含简单查询、联合查询和子查询 
--key：使用的索引
+- key：使用的索引
 - rows：扫描的行数
 
 #### 减少返回的列

@@ -43,3 +43,5 @@ HttpServlet的service方法，会根据请求方法自动调用doGet()或者doPo
 ## JSP和Servlet
 
 JSP文件经过编译之后就变成了Servlet（JSP本质就是Servlet）。
+
+# HttpServlet
