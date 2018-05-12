@@ -3,7 +3,7 @@
 ```java
 package java.lang;
 
-public final class String implements java.ioSerializable, Comparable<String>, CharSequence{
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence{
 	//底层本身就是char数组构成的，并且该字符数组是不可变的
 	private final char []value;
 	
@@ -71,7 +71,7 @@ public final class String implements java.ioSerializable, Comparable<String>, Ch
 
 #### intern in JDK1.8
 
-在JDK1.8版本中，依然接受-XX:String.TableSize=N，唯一不同的是池默认大小增加到25-50K。记得N靠近质数会有较好的性能。
+在JDK1.8版本中，依然接受-XX:StringTableSize=N，唯一不同的是池默认大小增加到25-50K。记得N靠近质数会有较好的性能。
 
 #### 字符串的操作
 
@@ -84,7 +84,7 @@ public final class String implements java.ioSerializable, Comparable<String>, Ch
 ![](http://p5s0bbd0l.bkt.clouddn.com/intern3.png)
 
 
-- 字符串'+'操作，在编译期会直接合并为一个字符创，比如：
+- 字符串'+'操作，在编译期会直接合并为一个字符串，比如：
 
 ```java
 	String str = "JJ" + "AA"；
@@ -145,14 +145,14 @@ HotSpot VM的StringTable的本体在native memory里。它持有String对象的�
 	
 	String s0 = "abc";
 	final String s1 = "a";
-	final String s2 = "bc";	//final字符创的引用在编译阶段就进入常量池
+	final String s2 = "bc";	//final字符串的引用在编译阶段就进入常量池
 	String s3 = s1 + s2;	//那么相当于 s3 = "a" + "bc"; --> s3 = "abc";
-	System.out.println(s1 == s3 + "(true)");	// 引用同一个常量池对象
+	System.out.println(s0 == s3 + "(true)");	// 引用同一个常量池对象
 	
-	String  s1 = new String("abc");
+	String s1 = new String("abc");
 	String s2 = "abc";
 	String s3 = new String("abc");
-	System.out.println(s1 == s2 .intern()+ "(false)");	//两个不同的引用
+	System.out.println(s1 == s2.intern() + "(false)");	//两个不同的引用
 	System.out.println(s1 == s3.intern() + "(fasle)");	//不同的引用
-	System.out.println(s2 == s3.intern() + "(true)");	//同一个引用，s2
+	System.out.println(s2 == s3.intern() + "(true)" );	//同一个引用，s2
 ```

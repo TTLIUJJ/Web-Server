@@ -32,7 +32,6 @@ public enum RequestParseState {
     HEADER_SPACES_BEFORE_COLON,
     HEADER_SPACES_AFTER_COLON,
 
-
     PARSE_OK,
     PARSE_MORE,     //需要更多的数据 来完成请求
     PARSE_REQUEST_LINE_EXCEPTION,

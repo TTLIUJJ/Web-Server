@@ -54,7 +54,7 @@ entity_type对应的数据库中的字段，而entityType对应的是自定义�
 - 模式${...}直接将SQL语句暴露出来，无法防止SQL注入
 
 - 模式${...}传入的的数据会被直接生成为SQL，拼接起来。
-如：ORDER BY ￥{id} 的SQL语句会被解析为 ORDER BY 5，假设这里id是5 
+如：ORDER BY ${id} 的SQL语句会被解析为 ORDER BY 5，假设这里id是5 
 
 - 模式${...}模式一般用于传入数据库对象，比如传入表名，就不能用“table”了
 

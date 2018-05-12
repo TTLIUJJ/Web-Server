@@ -47,7 +47,7 @@ Entry对象唯一表示一个键值对，有四个属性：
 - K key 键对象
 - V value 值对象
 - int hash 键对象的hash值
-- Entry entry 指向链表中的下一个Entry对象，null表示当前Entry对象在链表的尾部
+- Entry next 指向链表中的下一个Entry对象，null表示当前Entry对象在链表的尾部
 
 插入方式“头插法”，后插入的后面可能用上的几率更大。
 
@@ -155,7 +155,7 @@ public Set<K> keySet(){
 
 为什么什么ConcurrentHashMap
 
-- 线程不安全的HashMap：在并发执行put操作的时会引起死循环，因为多线程会导致HashMap的Entry链表形成环形数据结构；
+- 线程不安全的HashMap：在并发执行put操作的时会导致数据丢失，在rehash的时候会导致HashMap的Entry链表形成环形数据结构；
 
 - 效率低下的HashTable：对于put()方法和get()方法都加上synchronized同步锁，竞争越激烈效率越低下；
 
@@ -198,7 +198,7 @@ public Set<K> keySet(){
 	- 这里用32是因为ConcurrentHashMap里的hash()方法最大输出数是32位
 - segmentMask = ssize - 1
 	- 散列运算的掩码
-	- ssize最大值为65536，掩码最大为65535，32位都是1
+	- ssize最大值为65536，掩码最大为65535，16位都是1
 
 #### 初始化每个segment
 
@@ -237,15 +237,15 @@ private static int hash(int h){
 }
 ```
 
-之所以再进行散列，目的是减少散列冲突，是元素能够均匀的分布在不同的Segement上，从而提高容器并发效率。
+之所以再进行散列，目的是减少散列冲突，使元素能够均匀的分布在不同的Segement上，从而提高容器并发效率。
 
 ```java
 //  一个散列很差的例子
 //  ssize的大小为16,sshiftMask为15
 	int h1 = Interger.ParseInt("00001111", 2) & 15;
-	int h2 = Interger.ParseInt("00001111", 2) & 15;
-	int h3 = Interger.ParseInt("00001111", 2) & 15;
-	int h4 = Interger.ParseInt("00001111", 2) & 15;
+	int h2 = Interger.ParseInt("00011111", 2) & 15;
+	int h3 = Interger.ParseInt("00111111", 2) & 15;
+	int h4 = Interger.ParseInt("01111111", 2) & 15;
 ```
 
 计算结果是四个h的散列值都是15，因为高位并没有参与散列计算。如果通过上面的再散列算法，可以让每一位的数据都散列开，这种再散列能让数字每一位都参与散列运算中，从而减少散列冲突。
@@ -295,8 +295,8 @@ int index = hash & (tab.length - 1);	//定位HashEntry
 
 #### size()操作
 
-- 步骤1：使用每个segment数组中的count相加，但是在统计期间，可能某个segment的count发生变化；
-- 步骤2：在统计期间，锁住每个segment的put、remove和clean方法，效率低下不考虑；
-- 步骤3：尝试2次通过不锁住segment的方式统计每个segment大小，如果统计过程中，容器的count发生改变，这时采用加锁这种效率低下的方式。
+- 方法1：使用每个segment数组中的count相加，但是在统计期间，可能某个segment的count发生变化；
+- 方法2：在统计期间，锁住每个segment的put、remove和clean方法，效率低下不考虑；
+- 方法3：尝试2次通过不锁住segment的方式统计每个segment大小，如果统计过程中，容器的count发生改变，这时采用加锁这种效率低下的方式。
 
 在统计过程中，如何判断统计过程中容器是否发生改变？使用modCount变量，在put、remove和clean方法里操作元素前都会将变量加1，那么在统计size前后比较这个modCount是否发生改变，从而得知容器大小是否发生改变。

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="A" class="ackerman.A">
+        <property name="liujiajing" value="aaa"></property>
+        <property name="jayan" value="yana"></property>
+    </bean>
+    <bean name="B" class="ackermanB">
+        <property name="lufei" value="xxxx"></property>
+        <property name="nami" value="zhousi"></property>
+    </bean>
+</beans>

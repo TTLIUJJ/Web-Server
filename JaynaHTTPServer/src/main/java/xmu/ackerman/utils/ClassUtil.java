@@ -71,12 +71,12 @@ public class ClassUtil {
         return classSet;
     }
 
-//    public static void main(String []args){
-//        try {
-//            getAllAssignClasses(HtmlHandler.class);
-//        }catch (Exception e){
-//
-//        }
-//    }
+    public static void main(String []args){
+        try {
+            getAllAssignClasses(HtmlHandler.class);
+        }catch (Exception e){
+
+        }
+    }
 
 }
