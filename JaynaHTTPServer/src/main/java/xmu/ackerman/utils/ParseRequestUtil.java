@@ -1,9 +1,7 @@
 package xmu.ackerman.utils;
 
-import xmu.ackerman.context.Context;
-import xmu.ackerman.context.HttpContext;
-import xmu.ackerman.context.HttpRequest;
-import xmu.ackerman.service.RequestMessage;
+import xmu.ackerman.http.context.Context;
+import xmu.ackerman.http.service.RequestMessage;
 
 import java.util.ArrayList;
 import java.util.Map;

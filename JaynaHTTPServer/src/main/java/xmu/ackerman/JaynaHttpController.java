@@ -1,12 +1,11 @@
 package xmu.ackerman;
 
-import xmu.ackerman.context.Context;
-import xmu.ackerman.context.HttpContext;
-import xmu.ackerman.service.MonitorService;
-import xmu.ackerman.service.MonitoredKey;
-import xmu.ackerman.thread.ReadThread;
-import xmu.ackerman.thread.WriteThread;
-import xmu.ackerman.service.RejectedStrategy;
+import xmu.ackerman.http.context.Context;
+import xmu.ackerman.http.context.HttpContext;
+import xmu.ackerman.http.service.MonitorService;
+import xmu.ackerman.http.thread.ReadThread;
+import xmu.ackerman.http.thread.WriteThread;
+import xmu.ackerman.http.service.RejectedStrategy;
 
 import java.io.File;
 import java.io.FileInputStream;

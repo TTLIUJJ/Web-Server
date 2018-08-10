@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <server>
     <handler>
-        <handler-class>xmu.ackerman.handler.entityHandler.IndexHandler</handler-class>
+        <handler-class>xmu.ackerman.http.handler.entityHandler.IndexHandler</handler-class>
         <file-path>/index.html</file-path>
     </handler>
 
     <handler>
-        <handler-class>xmu.ackerman.handler.entityHandler.error.Error404Handler</handler-class>
+        <handler-class>xmu.ackerman.http.handler.entityHandler.error.Error404Handler</handler-class>
         <file-path>/error/error_404.html</file-path>
     </handler>
 </server>
