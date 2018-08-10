@@ -7,6 +7,7 @@ import xmu.ackerman.spring.annotation.After;
 import xmu.ackerman.spring.annotation.Before;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -85,10 +86,10 @@ public class CglibProxy implements MethodInterceptor {
 //        methodProxy.invoke(o, objects);
         Object res = methodProxy.invokeSuper(o, objects);
 
-//        System.out.println("object:" + o.getClass().toString());
-//        System.out.println("method:" + method.getName());
-//        System.out.println("args  :" + Arrays.toString(objects));
-//        System.out.println("methodProxy:" + methodProxy.getSuperName());
+        System.out.println("object:" + o.getClass().toString());
+        System.out.println("method:" + method.getName());
+        System.out.println("args  :" + Arrays.toString(objects));
+        System.out.println("methodProxy:" + methodProxy.getSuperName());
 
 //        System.out.println("after");
 
@@ -109,7 +110,7 @@ public class CglibProxy implements MethodInterceptor {
     }
 
     public static void main(String []args){
-//        CglibProxy proxy = new CglibProxy(new A(), new A());
+//        CglibProxy proxy = new CglibProxy(new A());
 //        A a = (A) proxy.newProxy();
 //        System.out.println("A:" + a.getClass().toString());
 //        a.foo(10000);
