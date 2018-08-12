@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b77bd87a-61fd-4f71-b489-ffb027e7a1f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/aop/CglibProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/aop/CglibProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Apple.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Apple.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy$A.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy$A.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/ioc/IOCManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/ioc/IOCManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../并发模型.md" beforeDir="false" afterPath="$PROJECT_DIR$/../并发模型.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,16 +22,17 @@
     <session id="-1546152874">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
-          <entry key="java" value="148" />
+          <entry key="java" value="149" />
           <entry key="properties" value="2" />
           <entry key="xml" value="4" />
         </counts>
@@ -43,7 +40,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="148" />
+          <entry key="JAVA" value="149" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="4" />
         </counts>
@@ -70,12 +67,12 @@
     <favorites_list name="JaynaHTTPServer" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/BeanManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-end-line="34" />
+              <caret line="33" column="43" selection-start-line="33" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -83,8 +80,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/IOCManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2525">
-              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+            <state relative-caret-position="3281">
+              <caret line="193" selection-start-line="193" selection-end-line="193" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/aop/CglibProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,13 +102,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/aop/CglibProxy.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="112" column="29" lean-forward="true" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="356">
+              <caret line="187" column="29" lean-forward="true" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -117,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/application/Apple.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/http/thread/WriteThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="629">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
@@ -149,7 +155,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/mvc/DispatcherServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="2210">
               <caret line="130" selection-start-line="130" selection-end-line="130" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -251,10 +257,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="797" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -284,7 +289,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,86 +340,13 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xmu" type="462c0819:PsiDirectoryNode" />
               <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
               <item name="http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="ioc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="news" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sport" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -422,7 +354,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/qudian/ackerman/Jayna/JaynaHTTPServer/src/main/java/xmu/ackerman/spring/ioc/IOCManager.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533784346806" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1534033298154" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="project.structure.last.edited" value="Project" />
@@ -638,17 +570,19 @@
       <workItem from="1525101876213" duration="281000" />
       <workItem from="1533426914390" duration="34658000" />
       <workItem from="1533742551062" duration="3922000" />
+      <workItem from="1533945267925" duration="83000" />
+      <workItem from="1533997717131" duration="1445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463113000" />
+    <option name="totallyTimeSpent" value="464641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49199083" visible="true" weight="0.2639485" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49199083" visible="true" weight="0.27110156" />
       <window_info id="Structure" order="1" weight="0.2494043" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -722,9 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1195">
           <caret line="349" column="5" lean-forward="true" selection-start-line="349" selection-start-column="5" selection-end-line="349" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -739,9 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="89" column="37" selection-start-line="89" selection-end-line="90" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -763,10 +691,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="49">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#1519#1520#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,10 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding>
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -848,9 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -868,9 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,13 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2884">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
@@ -944,9 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="66" column="26" lean-forward="true" selection-start-line="66" selection-start-column="26" selection-end-line="66" selection-end-column="26" />
-          <folding>
-            <element signature="e#1606#1607#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1004,9 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1027,27 +928,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/application/Log.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/BeanManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="425">
+          <caret line="33" column="43" selection-start-line="33" selection-end-line="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/http/thread/WriteThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/IOCManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/mvc/DispatcherServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="3281">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1061,27 +952,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/IOCManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/application/Apple.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2525">
-          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/ioc/BeanManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/application/Log.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-end-line="34" />
+        <state relative-caret-position="170">
+          <caret line="11" column="51" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/application/Apple.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/http/thread/WriteThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="629">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/mvc/DispatcherServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1090,11 +991,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/spring/aop/CglibProxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="112" column="29" lean-forward="true" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
+        <state relative-caret-position="425">
+          <caret line="112" column="29" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/JaynaHttpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="187" column="29" lean-forward="true" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
         </state>
       </provider>
     </entry>
