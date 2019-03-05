@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b77bd87a-61fd-4f71-b489-ffb027e7a1f6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JaynaHTTPServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JaynaHTTPServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/JaynaHttpController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Apple.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/ApplicationConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Log.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/application/Time.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/Context.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/HttpContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/HttpRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/HttpResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/context/Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/HandlerAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/HtmlHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/entityHandler/IndexHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/entityHandler/News1Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/handler/entityHandler/error/Error404Handler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/MonitorService$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/MonitorService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/MonitoredKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/RejectedStrategy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/RequestMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/RequestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/service/ResponseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/thread/CancelTask.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/thread/ReadThread$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/thread/ReadThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/thread/TimeThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/http/thread/WriteThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/After.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/Aspect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/Autowired.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/Before.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/RequestMapping$RequestMethod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/RequestMapping.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/annotation/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy$A.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/aop/CglibProxy.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/ioc/Bean.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/ioc/BeanManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/ioc/IOCManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/spring/mvc/DispatcherServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/ClassUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/FileType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/ParseRequestUtil$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/ParseRequestUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/RequestParseState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/xmu/ackerman/utils/ResourceMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -153,7 +99,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/http/timewheel/TimeWheel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
+            <state relative-caret-position="503">
               <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
             </state>
           </provider>
@@ -391,71 +337,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xmu" type="462c0819:PsiDirectoryNode" />
               <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="http" type="462c0819:PsiDirectoryNode" />
-              <item name="timewheel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
               <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="aop" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="ioc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JaynaHTTPServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JaynaHTTPServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="xmu" type="462c0819:PsiDirectoryNode" />
-              <item name="ackerman" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -470,7 +352,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/qudian/ackerman/Jayna/JaynaHTTPServer/src/main/java/xmu/ackerman/spring/ioc/IOCManager.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551778482483" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551784501822" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="project.structure.last.edited" value="Project" />
@@ -694,9 +576,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49199083" weight="0.16380544" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49199083" visible="true" weight="0.16380544" />
       <window_info id="Structure" order="1" weight="0.2494043" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1156,7 +1037,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xmu/ackerman/http/timewheel/TimeWheel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
+        <state relative-caret-position="503">
           <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
         </state>
       </provider>

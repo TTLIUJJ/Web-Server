@@ -8,7 +8,7 @@
 
 **目前的代码量（实时更新）**
 
-![](http://owj98yrme.bkt.clouddn.com/cloc3.jpg)
+![](./readme/picture/代码总量.png)
 
 ## Dev Document
 
@@ -29,14 +29,19 @@
 - 实现定时关闭长连接的Socket
 	- ScheduledThreadPoolExecutor
 	- 工作队列为DelayQueue，底层实现是PriorityQueue
-	- 关闭Socket连接的操作，封装为FutureTask，可以重设Socket过期时间
-	- 可以唯一识别的SelectionKey与FutrueTask通过ConcurrentHashMap关联
+	- 使用时间轮盘处理大量的长连接
+		* 关闭Socket连接的操作，封装为FutureTask，可以重设Socket过期时间
+		* 可以唯一识别的SelectionKey与FutrueTask通过ConcurrentHashMap关联（严重拖累CPU，已被废弃）
 - 实现了HTTP长连接传输数据
 	- 非阻塞I/O
 	- I/O复用
 	- Selector默认触发模式（LT）
 - 实现了状态机解析HTTP协议，非简单字符串匹配请求
 	- 支持GET请求
+- 实现了Web基础轮子
+	- IOC
+	- AOP
+	- MVC
 	
 **Feature**
 
