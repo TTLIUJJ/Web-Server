@@ -1,4 +1,4 @@
-# Jayna HTTP Server
+# Jayna Web Server
 
 **Jayna Web Server基于Reactor多线程模型编写HTTP服务器**
 
@@ -48,3 +48,4 @@
 - 支持POST方法请求，扩展状态机
 - 实现服务器缓存
 - 学习Servlet规范
+- 异步错误日志
